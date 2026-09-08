@@ -5,7 +5,7 @@
  * URL, error handling and JSON parsing live in exactly one place.
  */
 
-const BASE_URL = "/api";
+const BASE_URL = "https://ai-traffic-command-center-backend.onrender.com/api";
 
 async function request(path, options = {}) {
   try {

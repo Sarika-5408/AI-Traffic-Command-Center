@@ -1,0 +1,19 @@
+.footer-status-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  padding: 10px 18px;
+  background: var(--bg-panel-solid);
+  border-top: 1px solid var(--border-soft);
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}

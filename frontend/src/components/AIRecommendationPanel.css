@@ -1,0 +1,46 @@
+.ai-rec-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  color: var(--purple-bright);
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  margin-bottom: 10px;
+}
+
+.ai-rec-list {
+  margin: 0 0 14px;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ai-rec-list li {
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.ai-rec-confidence-label {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+}
+
+.ai-rec-confidence-track {
+  height: 5px;
+  border-radius: 4px;
+  background: rgba(148, 163, 184, 0.15);
+  overflow: hidden;
+}
+
+.ai-rec-confidence-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--purple));
+  border-radius: 4px;
+}

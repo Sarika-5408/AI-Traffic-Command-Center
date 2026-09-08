@@ -1,0 +1,119 @@
+/**
+ * Design tokens — derived from the supplied Landing Page & Dashboard
+ * reference images (dark "traffic command center" neon theme).
+ */
+:root {
+  /* Base surfaces */
+  --bg-void: #050810;
+  --bg-panel: rgba(13, 20, 38, 0.85);
+  --bg-panel-solid: #0b1120;
+  --border-glow: rgba(56, 189, 248, 0.35);
+  --border-soft: rgba(148, 163, 184, 0.15);
+
+  /* Neon accents */
+  --cyan: #22d3ee;
+  --cyan-bright: #67e8f9;
+  --blue: #3b82f6;
+  --purple: #a855f7;
+  --purple-bright: #c084fc;
+  --magenta: #ec4899;
+
+  /* Status */
+  --status-low: #22c55e;
+  --status-medium: #f59e0b;
+  --status-high: #fb923c;
+  --status-critical: #ef4444;
+
+  /* Text */
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  /* Typography */
+  --font-display: 'Orbitron', 'Rajdhani', 'Segoe UI', sans-serif;
+  --font-body: 'Rajdhani', 'Inter', 'Segoe UI', sans-serif;
+  --font-mono: 'Share Tech Mono', 'Courier New', monospace;
+
+  /* Radii / shadow */
+  --radius: 10px;
+  --glow-cyan: 0 0 16px rgba(34, 211, 238, 0.35);
+  --glow-purple: 0 0 16px rgba(168, 85, 247, 0.35);
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+}
+
+body {
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(59, 130, 246, 0.08), transparent 40%),
+    radial-gradient(circle at 85% 90%, rgba(168, 85, 247, 0.08), transparent 40%);
+  background-attachment: fixed;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(56, 189, 248, 0.35); border-radius: 8px; }
+
+/* Shared panel chrome used across all Dashboard cards/components */
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  min-width: 0;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  color: var(--cyan-bright);
+  margin-bottom: 12px;
+}
+
+/* Shared grid utilities used across Dashboard and all secondary pages */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.grid-row {
+  display: grid;
+  gap: 12px;
+}
+
+.grid-row--2 { grid-template-columns: 1fr 1fr; }
+.grid-row--3 { grid-template-columns: 2fr 1.3fr 1fr; }
+.grid-row--4 { grid-template-columns: repeat(4, 1fr); }
+
+.env-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (max-width: 1400px) {
+  .stat-row { grid-template-columns: repeat(3, 1fr); }
+  .grid-row--3 { grid-template-columns: 1fr; }
+  .grid-row--3 .traffic-feed-panel { grid-column: span 1; }
+  .grid-row--4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-row--2 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .stat-row { grid-template-columns: repeat(2, 1fr); }
+  .grid-row--4 { grid-template-columns: 1fr; }
+}

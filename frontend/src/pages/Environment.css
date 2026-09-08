@@ -1,0 +1,52 @@
+.env-score {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.env-factors {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.env-factor-row {
+  display: grid;
+  grid-template-columns: 120px 1fr 40px 50px;
+  align-items: center;
+  gap: 10px;
+}
+
+.env-factor-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.env-factor-track {
+  height: 6px;
+  background: rgba(148, 163, 184, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.env-factor-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--magenta));
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.env-factor-value {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-primary);
+  text-align: right;
+}
+
+.env-factor-weight {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: var(--text-muted);
+  text-align: right;
+}

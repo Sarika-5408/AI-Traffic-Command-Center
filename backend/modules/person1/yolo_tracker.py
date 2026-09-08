@@ -16,7 +16,7 @@ from ultralytics import YOLO
 # CONFIGURATION
 # ---------------------------------------------------------
 
-MODEL_PATH = Path("yolov8m.pt")
+MODEL_PATH = Path("yolov8n.pt")
 VIDEO_PATH = Path(r"D:\projects\traffic and accident\traffic-command-center\traffic.mp4")
 TRACKER_PATH = Path(r"D:\projects\traffic and accident\traffic-command-center\bytetrack_custom.yaml")
 

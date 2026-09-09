@@ -18,7 +18,7 @@ from ultralytics import YOLO
 
 MODEL_PATH = Path("yolov8n.pt")
 VIDEO_PATH = Path(__file__).resolve().parents[3] / "frontend" / "public" / "traffic.mp4"
-TRACKER_PATH = Path(r"D:\projects\traffic and accident\traffic-command-center\bytetrack_custom.yaml")
+TRACKER_PATH = Path(__file__).resolve().parents[3] / "bytetrack_custom.yaml"
 
 CONFIDENCE = 0.35
 

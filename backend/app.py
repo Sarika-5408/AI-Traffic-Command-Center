@@ -11,13 +11,15 @@ import cv2
 from flask import Flask
 from flask_cors import CORS
 
-from config import Config
+from config import Config 
+from pathlib import Path 
+VIDEO_PATH = Path(__file__).resolve().parents[1] / "frontend" / "public" / "traffic.mp4"
 from services.state import state
 from services.overall_risk import calculate_overall_risk
 from services.traffic_command import generate_traffic_command
 from utils.helpers import average_speed_kmh, time_to_collision_seconds
 
-from modules.person1.yolo_tracker import VIDEO_PATH
+from pathlib import Path
 from modules.person2.risk_engine import compute_accident_risk
 from modules.person3.traffic_context import calculate_traffic_density, calculate_congestion
 from modules.person3.weather_service import get_current_weather

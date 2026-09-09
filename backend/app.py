@@ -17,7 +17,7 @@ from services.overall_risk import calculate_overall_risk
 from services.traffic_command import generate_traffic_command
 from utils.helpers import average_speed_kmh, time_to_collision_seconds
 
-from modules.person1.yolo_tracker import YOLOVehicleTracker, VIDEO_PATH
+from modules.person1.yolo_tracker import VIDEO_PATH
 from modules.person2.risk_engine import compute_accident_risk
 from modules.person3.traffic_context import calculate_traffic_density, calculate_congestion
 from modules.person3.weather_service import get_current_weather
@@ -40,7 +40,7 @@ WEATHER_REFRESH_SECONDS = 120
 
 
 # YOLO tracker + video
-yolo_tracker = None if os.getenv("DISABLE_YOLO", "").lower() == "true" else YOLOVehicleTracker()
+yolo_tracker = None
 video_capture = cv2.VideoCapture(str(VIDEO_PATH))
 
 

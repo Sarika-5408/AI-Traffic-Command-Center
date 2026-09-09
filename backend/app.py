@@ -5,6 +5,7 @@ AI-Powered Intelligent Traffic Monitoring and Accident Risk Prediction System
 """
 
 import time
+import os
 import cv2
 
 from flask import Flask
@@ -39,7 +40,7 @@ WEATHER_REFRESH_SECONDS = 120
 
 
 # YOLO tracker + video
-yolo_tracker = YOLOVehicleTracker()
+yolo_tracker = None if os.getenv("DISABLE_YOLO", "").lower() == "true" else YOLOVehicleTracker()
 video_capture = cv2.VideoCapture(str(VIDEO_PATH))
 
 
@@ -66,7 +67,7 @@ def simulation_tick():
         video_capture.set(cv2.CAP_PROP_POS_FRAMES, 0)
         success, frame = video_capture.read()
 
-    vehicles = yolo_tracker.process_frame(frame) if success else []
+    vehicles = yolo_tracker.process_frame(frame) if success and yolo_tracker else []
 
     # Person 2 - Accident / near-miss risk
     risk_events, accident_risk_score = compute_accident_risk(vehicles)

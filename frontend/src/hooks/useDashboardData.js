@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { dashboardService } from "../services/dashboardService";
+import { vehicleService } from "../services/vehicleService";
 import { riskService } from "../services/riskService";
 import { MOCK_DASHBOARD, MOCK_ALERTS } from "../utils/mockData";
 
@@ -24,12 +25,19 @@ export function useDashboardData() {
 
     async function poll() {
       try {
-        const [dashboardData, alertsData] = await Promise.all([
-          dashboardService.getDashboard(),
-          riskService.getAlerts(),
-        ]);
+       const [dashboardData, vehicleData, alertsData] = await Promise.all([
+        dashboardService.getDashboard(),
+        vehicleService.getVehicles(),
+        riskService.getAlerts(),
+       ]);
         if (cancelled) return;
-        setDashboard(dashboardData);
+        setDashboard({
+        ...dashboardData,
+        vehicles: {
+          ...vehicleData,
+          list: vehicleData.vehicles || [],
+         },
+      });
         setAlerts(alertsData);
         setIsLive(true);
         setError(null);

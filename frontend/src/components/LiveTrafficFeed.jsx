@@ -38,6 +38,14 @@ export default function LiveTrafficFeed({ vehicles = [], isLive }) {
       </div>
 
       <div className="traffic-feed-canvas">
+        <video
+          className="traffic-feed-video"
+          src="/traffic.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
         <svg viewBox={`0 0 ${FRAME_W} ${FRAME_H}`} preserveAspectRatio="xMidYMid slice">
           <defs>
             <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">

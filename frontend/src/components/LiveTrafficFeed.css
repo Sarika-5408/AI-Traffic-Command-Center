@@ -25,13 +25,31 @@
   aspect-ratio: 960 / 540;
   border-radius: 8px;
   overflow: hidden;
+  position: relative;
   background:
     linear-gradient(180deg, rgba(2,6,23,0.9), rgba(2,6,23,0.7)),
     radial-gradient(circle at 50% 50%, rgba(59,130,246,0.08), transparent 60%);
   border: 1px solid var(--border-soft);
+  
 }
-
-.traffic-feed-canvas svg { width: 100%; height: 100%; display: block; }
+.traffic-feed-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+}
+.traffic-feed-canvas svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 2;
+  pointer-events: none;
+}
 
 .traffic-feed-meta {
   display: flex;

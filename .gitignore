@@ -3,3 +3,4 @@ runs/
 *.mp4
 *.avi
 *.pt
+!frontend/public/traffic.mp4

@@ -42,7 +42,11 @@ WEATHER_REFRESH_SECONDS = 120
 
 
 # YOLO tracker + video
-yolo_tracker = None
+if os.getenv('DISABLE_YOLO', '').lower() == 'true':
+    yolo_tracker = None
+else:
+    from modules.person1.yolo_tracker import YOLOVehicleTracker
+    yolo_tracker = YOLOVehicleTracker()
 video_capture = cv2.VideoCapture(str(VIDEO_PATH))
 
 
@@ -150,3 +154,4 @@ if __name__ == "__main__":
         debug=Config.DEBUG,
         use_reloader=False
     )
+
